@@ -1,21 +1,11 @@
 package idwall.desafio.string;
 
-/**
- * Created by Rodrigo Catão Araujo on 06/02/2018.
- */
-public abstract class StringFormatter {
-
-    private Integer limit;
-
-    public StringFormatter() {
-        this.limit = 40;
-    }
-
+public interface StringFormatter {
     /**
-     * It receives a text and should return it formatted
+     * Should format as described in the challenge
      *
-     * @param text
-     * @return
+     * @param text to be formatted
+     * @return a list of the justified text with each array position containing a line of words
      */
-    public abstract String format(String text);
+    String format(String text);
 }

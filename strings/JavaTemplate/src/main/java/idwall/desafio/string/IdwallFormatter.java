@@ -1,18 +1,22 @@
 package idwall.desafio.string;
 
-/**
- * Created by Rodrigo Catão Araujo on 06/02/2018.
- */
-public class IdwallFormatter extends StringFormatter {
+public class IdwallFormatter implements StringFormatter {
+
+    public IdwallFormatter(int lineCharLimit, boolean shouldJustify) {
+        this.lineCharLimit = lineCharLimit;
+        this.shouldJustify = shouldJustify;
+    }
+
+    public final int lineCharLimit;
+    public final boolean shouldJustify;
 
     /**
-     * Should format as described in the challenge
-     *
-     * @param text
-     * @return
+     * {@inheritDoc}
      */
     @Override
     public String format(String text) {
         throw new UnsupportedOperationException();
     }
+
+
 }
