@@ -21,7 +21,7 @@ class IdwallFormatterTest {
         int lineCharLimit = 40;
         idwallFormatter = new IdwallFormatter(lineCharLimit, true);
         String test = idwallFormatter.format(DEFAULT_INPUT_TEXT);
-        boolean excededLimit = Arrays.stream(test.split("\n")).anyMatch(s -> s.length() > lineCharLimit);
-        assertFalse(excededLimit);
+        boolean exceededLimit = Arrays.stream(test.split("\n")).anyMatch(s -> s.length() > lineCharLimit);
+        assertFalse(exceededLimit);
     }
 }
