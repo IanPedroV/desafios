@@ -30,6 +30,19 @@ public class IdwallFormatter implements StringFormatter {
             int lineLength = words[i].length();
             int count = 0;
 
+            while (i + 1 < length && lineLength + words[i + 1].length() + count < lineCharLimit) { //should have one more word
+                i++;
+                count++;
+                lineLength += words[i].length();
+            }
+
+            final StringBuilder stringBuilder = new StringBuilder();
+
+            for (int j = start; j <= i; j++) {
+                stringBuilder.append(words[j]);
+
+            }
+            justifiedLines.add(stringBuilder.toString());
             i++;
         }
 
