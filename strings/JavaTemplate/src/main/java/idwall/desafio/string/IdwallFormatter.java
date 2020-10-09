@@ -38,8 +38,21 @@ public class IdwallFormatter implements StringFormatter {
 
             final StringBuilder stringBuilder = new StringBuilder();
 
+            final int neededSpaces = lineCharLimit - lineLength;
+            final int wordsCount = i - start;
+            final boolean lastLine = i == words.length - 1;
+
+            int numSpaces = 0;
+            if (wordsCount > 0) numSpaces = shouldJustify ? neededSpaces / wordsCount : 1;
+
+            final int evenSpaces = numSpaces * wordsCount;
+            int spacesLeft = neededSpaces - evenSpaces;
+
             for (int j = start; j <= i; j++) {
                 stringBuilder.append(words[j]);
+                boolean isLastWord = j + 1 <= i;
+                if (isLastWord) stringBuilder.append(" ".repeat(numSpaces));
+                if (!lastLine && spacesLeft-- > 0) stringBuilder.append(" ");
 
             }
             justifiedLines.add(stringBuilder.toString());
