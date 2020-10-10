@@ -42,7 +42,7 @@ class IdwallFormatterTest {
                 "God  called  the  light  \"day,\"  and the\n" +
                 "darkness  he  called  \"night.\" And there\n" +
                 "was evening, and there was morning - the\n" +
-                "first                              day.";
+                "first                               day.";
 
         int lineCharLimit = 40;
         idwallFormatter = new IdwallFormatter(lineCharLimit, true);
