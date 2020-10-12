@@ -51,7 +51,7 @@ public class IdwallFormatter implements StringFormatter {
             for (int j = start; j <= i; j++) {
                 stringBuilder.append(words[j]);
                 boolean isLastWord = j + 1 <= i;
-                if (isLastWord) stringBuilder.append(" ".repeat(numSpaces));
+                if (isLastWord) stringBuilder.append(spaces(numSpaces));
                 if (!lastLine && spacesLeft-- > 0 && shouldJustify) stringBuilder.append(" ");
 
             }
@@ -62,5 +62,13 @@ public class IdwallFormatter implements StringFormatter {
         return String.join("\n", justifiedLines);
     }
 
+    public String spaces(int spaces) {
+        if (spaces == 1) return " ";
+        StringBuilder sb = new StringBuilder();
+        while (spaces-- > 0) {
+            sb.append(" ");
+        }
+        return sb.toString();
+    }
 
 }

@@ -1,0 +1,11 @@
+# spring-boot-docker/docker-compose.yml
+version: "3.7"
+services:
+  text-justify:
+    build:
+      context: strings/JavaTemplate
+      dockerfile: Dockerfile
+  crawlers:
+    build:
+      context: crawlers
+      dockerfile: Dockerfile

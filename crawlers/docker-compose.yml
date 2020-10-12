@@ -1,7 +1,0 @@
-# spring-boot-docker/docker-compose.yml
-version: "3.7"
-services:
-  webscraper:
-    build:
-      context: ./
-      dockerfile: Dockerfile
