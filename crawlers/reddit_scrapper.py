@@ -31,7 +31,6 @@ def get_threads(subreddit):
         thread = RedditThread(subreddit, title, author, up_votes, link_comment, link)
         if should_add(thread):
             threads.append(thread)
-        # TODO: what if no thread had more than 5K up_votes?
     return threads
 
 
@@ -50,16 +49,16 @@ def get_up_votes(page_thread):
 
 
 def get_all_threads(subreddits):
-    # TODO: what if the format was wrong? Clear spaces, trim
-    for subreddit in subreddits.split(';'):
+    for subreddit in subreddits:
         thread = get_threads(subreddit)
         all_threads.append(thread)
     return all_threads
 
 
-def receive_subreddits(raw_subreddits):
-    subreddit = get_all_threads(raw_subreddits.strip())
-    print_subreddits_and_threads(subreddit)
+def process_input(reddit_input):
+    # TODO: what if the format was wrong? Clear spaces, trim
+    subreddits = get_all_threads(reddit_input.strip().split(';'))
+    return subreddits
 
 
 def print_subreddits_and_threads(subreddit):

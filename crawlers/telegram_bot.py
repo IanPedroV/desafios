@@ -2,7 +2,7 @@ import os
 
 import telebot
 
-from reddit_scrapper import get_all_threads, print_subreddits_and_threads
+from reddit_scrapper import print_subreddits_and_threads, process_input
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -17,7 +17,7 @@ def start_bot():
 
     @bot.message_handler(commands=['NadaPraFazer'])
     def listen_for_subreddits(message):
-        subreddits = get_all_threads(message.text.replace('/NadaPraFazer', '').strip())
+        subreddits = process_input(message.text.replace('/NadaPraFazer', ''))
         print_subreddits_and_threads(subreddits)
         for subreddit in subreddits:
             for thread in subreddit:
