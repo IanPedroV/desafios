@@ -1,4 +1,4 @@
-# Desafios IDwall
+# IDwall Challenges
 
 This applications are the Idwall challenges for a java back-end dev position.
 
