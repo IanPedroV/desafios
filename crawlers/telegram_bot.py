@@ -2,7 +2,7 @@ import os
 
 import telebot
 
-from reddit_scrapper import print_subreddits_and_threads, process_input
+from reddit_scrapper import print_subreddits_and_threads, process_input, has_error
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -13,6 +13,7 @@ bot = telebot.TeleBot(os.getenv('TELEGRAM_TOKEN'))
 def start_bot():
     @bot.message_handler(commands=['start', 'help'])
     def send_welcome(message):
+        # change this
         bot.reply_to(message, "Olá, bem-vindo ao bot!")
 
     @bot.message_handler(commands=['NadaPraFazer'])
@@ -20,6 +21,9 @@ def start_bot():
         subreddits = process_input(message.text.replace('/NadaPraFazer', ''))
         print_subreddits_and_threads(subreddits)
         for subreddit in subreddits:
+            if has_error(subreddit):
+                bot.send_message(message.chat.id, '\nError occurred when trying to scrap, message: ' + subreddit.error)
+                break
             for thread in subreddit:
                 bot.send_message(message.chat.id,
                                  'subreddit: ' + thread.subreddit + '\n' + 'title: ' + thread.title + '\n' + 'author: '

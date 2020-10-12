@@ -3,7 +3,7 @@ from telegram_bot import start_bot
 
 
 def start():
-    mode = input("Do you want to input the subreddits or call me on me telegram?. type 1 for local CLI of 2 for "
+    mode = input("Do you want to input the subreddits or call me on me telegram?. Type 1 for local CLI of 2 for "
                  "telegram")
     if mode == "1":
         reddit_input = input('please input the subreddits as it follows: a;b;c')
