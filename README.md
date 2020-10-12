@@ -1,32 +1,29 @@
 # Desafios IDwall
 
-Aqui estão os desafios para a primeira fase de testes de candidatos da IDwall.
-Escolha em qual linguagem irá implementar (a não ser que um de nossos colaboradores lhe instrua a utilizar uma linguagem específica).
+This applications are the Idwall challenges for a java back-end dev position.
 
-Não há diferença de testes para diferentes níveis de profissionais, porém o teste será avaliado com diferentes critérios, dependendo do perfil da vaga.
+Summarizing, those are two different apps. One is a reddit webcrawler with telegram integration and the other is a algorithm for text
+justification.
 
-1. [Manipulação de strings](https://github.com/idwall/desafios/tree/master/strings)
-2. [Crawlers](https://github.com/idwall/desafios/tree/master/crawlers)
+## Building
 
-## Como entregar estes desafios
-Você deve forkar este projeto e fazer o *push* no seu próprio repositório e enviar o link para _jobs@idwall.co_ ou para o email do recrutador, junto com seu LinkedIn atualizado.
+First of all, clone this repository:
 
-A implementação deve ficar na pasta correspondente ao desafio. Fique à vontade para adicionar qualquer tipo de conteúdo que julgue útil ao projeto, alterar/acrescentar um README com instruções de como executá-lo, etc.
+`git clone https://github.com/IanPedroV/desafios/`
 
-**Obs.**:
-- Você não deve fazer um Pull Request para este projeto!
-- Utilizar as versões mais atuais da linguagem que escolher para desenvolver (JavaScript ES6+; Java 8; Python 3, etc).
+The docker compose will handle all the building and stuff for you. If you don't have docker, just run the project
+inside your IDEs.
 
-### Extras
+The crawler needs a TELEGRAM_TOKEN=TOKEN inside a .env in its root folder to run, it was provider in the e-mail for Mirella xD
 
-- Descreva o processo de resolução dos desafios;
-- Descreva como utilizar a sua solução;
-- Tratamento de erros e exceções. Fica a seu critério quais casos deseja tratar e como serão tratados;
-- Testes unitários ou de integração;
-- Use o Docker.
+Having docker, just run:
 
-## Carreira IDwall
+`docker-compose up`
 
-Caso queira mais detalhes de como trabalhamos, quais são nossos valores e ideais, confira a página [Carreira IDwall](https://idwall.co/carreira) e mesmo que seu perfil não esteja listado nas vagas em aberto, lhe encorajamos a mandar seu CV! Valorizamos bons profissionais sempre e gostamos de manter contato com gente boa.
+You might need to grab a cup of coffee while your application is coming up. 
 
-Boas implementações! 🎉
+The docker will build the StringFormatter with maven, but will not run it, that have to be done manually. It uses the 
+provived template, so it's very straightforward :)
+
+The crawler will be available in the end of the compose build: just access it: https://github.com/IanPedroV/desafios/
+and have fun!

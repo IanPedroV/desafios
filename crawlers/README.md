@@ -1,31 +1,22 @@
-# Desafio 2: Crawlers
+# Desafio 1: Strings
 
-Parte do trabalho na IDwall inclui desenvolver *crawlers/scrapers* para coletar dados de websites.
-Como nós nos divertimos trabalhando, às vezes trabalhamos para nos divertir!
+Webcrawlers! How not to love them? I've worked with them in the past, and it's always fun to play with them!
 
-O Reddit é quase como um fórum com milhares de categorias diferentes. Com a sua conta, você pode navegar por assuntos técnicos, ver fotos de gatinhos, discutir questões de filosofia, aprender alguns life hacks e ficar por dentro das notícias do mundo todo!
+This project is in it's core a reddit webcrawler. It receives a list of subreddits and returns information of the threads
+with 5000 upvotes or more! 
 
-Subreddits são como fóruns dentro do Reddit e as postagens são chamadas *threads*.
+It also comes with a built-in telegram integration, so you can pass the subreddits for the Reddit Concierge bot and he'll reply
+the same info for you!
 
-Para quem gosta de gatos, há o subreddit ["/r/cats"](https://www.reddit.com/r/cats) com threads contendo fotos de gatos fofinhos.
-Para *threads* sobre o Brasil, vale a pena visitar ["/r/brazil"](https://www.reddit.com/r/brazil) ou ainda ["/r/worldnews"](https://www.reddit.com/r/worldnews/).
-Um dos maiores subreddits é o "/r/AskReddit".
+## Running
+Don't forget to create a .env file with a `TELEGRAM_TOKEN=TOKEN` inside!
 
-Cada *thread* possui uma pontuação que, simplificando, aumenta com "up votes" (tipo um like) e é reduzida com "down votes".
+If you run this with docker it will automatically chooses the telegram response, but this one also prints the data in the CLI, so it's 
+easier to test it!
 
-Sua missão é encontrar e listar as *threads* que estão bombando no Reddit naquele momento!
-Consideramos como bombando *threads* com 5000 pontos ou mais.
+If you are running directly the py file, just follow the given instructions! :)
 
-## Entrada
-- Lista com nomes de subreddits separados por ponto-e-vírgula (`;`). Ex: "askreddit;worldnews;cats"
-
-### Parte 1
-Gerar e imprimir uma lista contendo a pontuação, subreddit, título da thread, link para os comentários da thread e link da thread.
-Essa parte pode ser um CLI simples, desde que a formatação da impressão fique legível.
-
-### Parte 2
-Construir um robô que nos envie essa lista via Telegram sempre que receber o comando `/NadaPraFazer [+ Lista de subrredits]` (ex.: `/NadaPraFazer programming;dogs;brazil`)
-
-### Dicas
- - Use https://old.reddit.com/
- - Qualquer método para coletar os dados é válido. Caso não saiba por onde começar, procure por JSoup (Java), SeleniumHQ (Java), PhantomJS (Javascript) e Beautiful Soup (Python).
+## Stack choices
+- Python 3
+- python-telegram-bot
+- request
