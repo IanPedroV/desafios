@@ -25,4 +25,4 @@ You might need to grab a cup of coffee while your application is coming up.
 The docker will build the StringFormatter with maven, but will not run it, that have to be done manually. It uses the 
 provived template, so it's very straightforward :)
 
-The crawler will be available in the end of the compose build: just access it: t.me/RedditConciergeBot and have fun!
+The crawler will be available in the end of the compose build: just access it: https://t.me/RedditConciergeBot and have fun!
