@@ -12,12 +12,12 @@ public class Main {
             "\n" +
             "And God said, \"Let there be light,\" and there was light. God saw that the light was good, and he separated the light from the darkness. God called the light \"day,\" and the darkness he called \"night.\" And there was evening, and there was morning - the first day.";
     private static final Integer DEFAULT_LIMIT = 40;
-    private static final Boolean DEFAULT_JUSTIFY = true;
+    private static final Boolean DEFAULT_JUSTIFY = false;
 
     public static void main(String[] args) {
         String text = DEFAULT_INPUT_TEXT;
-        Integer limit = DEFAULT_LIMIT;
-        Boolean justify = DEFAULT_JUSTIFY;
+        int limit = DEFAULT_LIMIT;
+        boolean justify = DEFAULT_JUSTIFY;
         switch (args.length) {
             case 1:
                 text = args[0];
@@ -41,7 +41,7 @@ public class Main {
         System.out.println("=========================");
 
         // Run IdwallFormatter
-        final StringFormatter sf = new IdwallFormatter(limit,justify);
+        final StringFormatter sf = new IdwallFormatter(limit, justify);
         String outputText = sf.format(text);
 
         // Print output text

@@ -5,8 +5,7 @@ import org.mockito.InjectMocks;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 class IdwallFormatterTest {
     @InjectMocks
@@ -18,7 +17,7 @@ class IdwallFormatterTest {
 
 
     @Test
-    void shouldNotExceedlineCharLimitWhenPassingString() {
+    void shouldNotExceedLineCharLimitWhenPassingString() {
         int lineCharLimit = 40;
         idwallFormatter = new IdwallFormatter(lineCharLimit, true);
         String test = idwallFormatter.format(DEFAULT_INPUT_TEXT);
@@ -27,7 +26,7 @@ class IdwallFormatterTest {
     }
 
     @Test
-    void shouldJustifyTextWhenPassingText(){
+    void shouldJustifyTextWhenPassingString(){
         String justified = "In the beginning God created the heavens\n" +
                 "and   the   earth.  Now  the  earth  was\n" +
                 "formless  and  empty,  darkness was over\n" +
@@ -49,4 +48,28 @@ class IdwallFormatterTest {
         String test = idwallFormatter.format(DEFAULT_INPUT_TEXT);
         assertEquals(test, justified);
     }
+    @Test
+    void shouldLimitToXCharsWhenPassingString(){
+        int lineCharLimit = 40;
+        idwallFormatter = new IdwallFormatter(lineCharLimit, false);
+        boolean valid = true;
+        String test = idwallFormatter.format(DEFAULT_INPUT_TEXT);
+        for (String s : test.split("\n")) {
+            int wordCount = countWords(s);
+            valid = wordCount <= 1 || wordCount - 1 == s.chars().filter(c -> c == ' ').count();
+            if (!valid)
+                break;
+
+        }
+
+        assertTrue(valid);
+    }
+
+    int countWords(String string){
+        String trim = string.trim();
+        if (trim.isEmpty())
+            return 0;
+        return trim.split("\\s+").length;
+    }
+
 }
